@@ -39,8 +39,8 @@ defineProps({
                       <h3 class="text-gray-500 mb-3 flex-1">{{ hotel.City }}</h3>
                       <h3 class="text-gray-500 mb-3 flex-1">${{ hotel.Price_per_night }} MXN</h3>
                       <span class="inline-flex flex-1">
-                        <a href="" class="p-2 text-white rounded uppercase mx-2 hover:bg-blue-900 bg-blue-600">Editar</a>
-                        <a href="" class="p-2 text-white rounded uppercase mx-2 hover:bg-red-900 bg-red-600">Eliminar</a>
+                        <a :href="'/hotel/'+hotel.id+'/edit'" class="p-2 text-white rounded uppercase mx-2 hover:bg-blue-900 bg-blue-600">Editar</a>
+                        <a :href="'/hotel/'+hotel.id+'/delete'" class="p-2 text-white rounded uppercase mx-2 hover:bg-red-900 bg-red-600">Eliminar</a>
 
                       </span>
                     </div>

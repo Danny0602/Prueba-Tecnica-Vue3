@@ -3,24 +3,27 @@
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 
+const props = defineProps({
+
+    hotel: Object,
+})
 
 
 const form = useForm({
-    Name: '',
-    Rating: '',
-    City: '',
-    Price_per_night: '',
-    Image: '',
+    id: props.hotel.id,
+    Name: props.hotel.Name,
+    Rating:  props.hotel.Rating,
+    City:  props.hotel.City,
+    Price_per_night:  props.hotel.Price_per_night,
+    Image:  props.hotel.Image,
 
 })
 
 
 function submit() {
-    form.post('/hotel')
+    form.post('/hotel/update')
 }
-defineProps({
-    hoteles: Array,
-});
+
 
 </script>
 
@@ -28,7 +31,7 @@ defineProps({
     <AppLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Agregar Hotel
+               Editanto hotel 
             </h2>
         </template>
 
@@ -69,8 +72,8 @@ defineProps({
 
                                     <div class="mt-8 flex justify-center">
                                         <button type="submit"
-                                            class="p-3  rounded-lg text-white uppercase  bg-green-600 hover:bg-green-700">añadir
-                                            hotel</button>
+                                            class="p-3  rounded-lg text-white uppercase  bg-green-600 hover:bg-green-700">Guardar cambios
+                                            </button>
                                     </div>
                                 </form>
                             </div>
