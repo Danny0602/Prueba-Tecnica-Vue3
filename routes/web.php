@@ -39,15 +39,35 @@ Route::middleware([
 
 
 
+    /* This code is defining a GET route for the URL "/hoteles" that will be handled by the "index"
+    method of the "HotelController" class. The name of this route is "hoteles.index". */
     Route::get('/hoteles', [HotelController::class, 'index'])->name('hoteles.index');
 
+    /* This code is defining a GET route for the URL "/hotel/create" that will be handled by the
+    "create" method of the "HotelController" class. The name of this route is "hotel.create". This
+    route is used to display a form for creating a new hotel. */
     Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel.create');
 
+    /* This code is defining a POST route for the URL "/hotel" that will be handled by the "store" method
+    of the "HotelController" class. The name of this route is "hotel.store". This route is used to store
+    the data submitted through the form for creating a new hotel. */
     Route::post('hotel', [HotelController::class, 'store'])->name('hotel.store');
-    
-    Route::get('/hotel/{hotel}/edit',[HotelController::class,'show'])->name('hotel.show');
 
-    Route::post('/hotel/update',[HotelController::class,'update'])->name('hotel.update');
+    /* This code is defining a GET route for the URL "/hotel/{hotel}/edit" that will be handled by the
+    "show" method of the "HotelController" class. The name of this route is "hotel.show". This route
+    is used to display a form for editing a specific hotel with the given ID. The ID of the hotel to
+    be edited is passed as a parameter in the URL. */
+    Route::get('/hotel/{hotel}/edit', [HotelController::class, 'show'])->name('hotel.show');
 
-    Route::get('/hotel/{hotel}/delete',[HotelController::class,'destroy'])->name('hotel.delete');
+    /* This code is defining a POST route for the URL "/hotel/update" that will be handled by the
+    "update" method of the "HotelController" class. The name of this route is "hotel.update". This
+    route is used to update the data of a specific hotel. The data to be updated is submitted
+    through a form and is processed by the "update" method of the "HotelController" class. */
+    Route::post('/hotel/update', [HotelController::class, 'update'])->name('hotel.update');
+
+    /* This code is defining a GET route for the URL "/hotel/{hotel}/delete" that will be handled by
+    the "destroy" method of the "HotelController" class. The name of this route is "hotel.delete".
+    This route is used to delete a specific hotel with the given ID. The ID of the hotel to be
+    deleted is passed as a parameter in the URL. */
+    Route::get('/hotel/{hotel}/delete', [HotelController::class, 'destroy'])->name('hotel.delete');
 });
