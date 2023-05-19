@@ -67,4 +67,14 @@ class HotelController extends Controller
         $hotel->save();
         return redirect()->route('hoteles.index');
     }
+
+
+
+    public function destroy(hotel $hotel){
+
+        $hotel->delete();
+
+        return redirect()->route('hoteles.index');
+
+    }
 }

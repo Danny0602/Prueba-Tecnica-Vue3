@@ -49,5 +49,5 @@ Route::middleware([
 
     Route::post('/hotel/update',[HotelController::class,'update'])->name('hotel.update');
 
-    Route::get('/hotel/{hotel}/delete',[HotelController::class,'delete'])->name('hotel.delete');
+    Route::get('/hotel/{hotel}/delete',[HotelController::class,'destroy'])->name('hotel.delete');
 });
